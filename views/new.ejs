@@ -1,0 +1,102 @@
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="/stylesheet/app.css">
+
+    <div class="ui green top fixed inverted menu">
+      <a class="item" href="/" ><i class="home icon"></i><strong>CCOE</strong> </a>
+      <a class="item" href="/tools">Application</a>
+      <a class="item">Testimonials</a>
+      <a class="item">Help</a>
+      <a class="item">Sign-in</a>
+    </div>  
+    
+    
+    <div id="topgridMargin"  class="ui sixteen wide centered grid">
+        <div class="four wide column"> </div>
+        <div class="eight wide centered column"> 
+  
+            <form class="ui form" action="/tools" method ="POST" >
+            
+                <div class="field">
+                <label>Application Name</label>
+                <input type="text" name="tools[tooName]" placeholder="Application Name"> 
+                </div>
+                <div class="field">
+                <label>Application Logo</label>
+                <input type="text" name="tools[image]" placeholder="Application Logo">
+                </div>
+                
+                <div class="field">
+                <label>Framework Vs Tool</label>
+                <select class="ui fluid dropdown" name="tools[frameworkORtool]" >
+                    <option value="">Select Appropriate</option>
+                    <option value="Framework">Framework</option>
+                    <option value="Tool">Tool</option>
+                    <option value="Script">Script</option>
+                </select>
+                
+                
+                </div>
+                
+                <div class="field">
+                <label>Account Name</label>
+                <input type="text" name="tools[account]" placeholder="Account Name">
+                </div>    
+            
+                <div class="field">
+                <label>Application Detailed Description </label>
+                <textarea rows="3" name="tools[toolInfo]" placeholder="Application Detailed Description"></textarea>
+                </div> 
+                
+                <div class="field">
+                <label>Module Name</label>
+                <select class="ui fluid dropdown" name="tools[module]" >
+                    <option value="">Select Appropriate Module</option>
+                    <option value="Framework">Benefits</option>
+                    <option value="Tool">Pricing</option>
+                    <option value="Script">Fee Schedule</option>
+                    <option value="Script">Capitation</option>
+                    <option value="Script">Utility</option>
+                    <option value="Script">Claims</option>
+                    <option value="Script">Clinical Edits</option>
+                    <option value="Script">Others</option>
+                    
+                </select>                
+                
+                
+                </div> 
+                
+                <div class="field">
+                <label>Point of Contact</label>
+                <input type="text" name="tools[poc]" placeholder="Point Of Contact">
+                </div> 
+                
+                <div class="field">
+                <label>Date application created</label>
+                <input type="text" name="tools[dateCreated]" placeholder="Date application created">
+                </div> 
+                
+                <div class="field">
+                <label>Last Version Update date</label>
+                <input type="text" name="tools[lastVersionUpdated]" placeholder="Last Version Update date">
+                </div> 
+                
+                <div class="field">
+                <label>Wnership</label>
+                <input type="text" name="tools[wnership]" placeholder="Wnership">
+                </div> 
+
+                <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" tabindex="0" class="hidden">
+                  <label>I agree to the Terms and Conditions</label>
+                </div>
+                </div>
+                
+                <button class="ui button" type="submit">Submit</button>
+
+            </form>
+
+        </div>
+        
+        <div class="four wide column"> </div>
+    </div>

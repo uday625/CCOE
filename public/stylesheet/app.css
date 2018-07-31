@@ -1,0 +1,25 @@
+
+.container.main{
+    margin-top: 7.0em ;
+}
+
+#topgridMargin {
+    margin-top: 5.0em;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+}
+
+.ui.header>img {
+    vertical-align: top;
+}
+
+body {
+  background-color: #ECF0F1;
+}
+
+.page-login {
+  margin-top: 190px;
+}

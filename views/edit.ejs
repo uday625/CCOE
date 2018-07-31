@@ -1,0 +1,102 @@
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="/stylesheet/app.css">
+
+    <div class="ui green top fixed inverted menu">
+      <a class="item" href="/" ><i class="home icon"></i><strong>CCOE</strong> </a>
+      <a class="item" href="/tools">Application</a>
+      <a class="item">Testimonials</a>
+      <a class="item">Help</a>
+      <a class="item">Sign-in</a>
+    </div>  
+    
+    
+    <div id="topgridMargin"  class="ui sixteen wide centered grid">
+        <div class="four wide column"> </div>
+        <div class="eight wide centered column"> 
+  
+            <form class="ui form" action="/tools/<%= tool._id%>?_method=PUT" method ="POST" >
+            
+                <div class="field">
+                <label>Application Name</label>
+                <input type="text" name="tools[tooName]" value="<%= tool.tooName%>"> 
+                </div>
+                <div class="field">
+                <label>Application Logo</label>
+                <input type="text" name="tools[image]" value="<%= tool.image%>">
+                </div>
+                
+                <div class="field">
+                <label>Framework Vs Tool</label>
+                <select class="ui fluid dropdown" name="tools[frameworkORtool]" >
+                    <option value="<%= tool.frameworkORtool%>" selected ><%= tool.frameworkORtool%></option>
+                    <option value="Framework" >Framework</option>
+                    <option value="Tool">Tool</option>
+                    <option value="Script">Script</option>
+                </select>
+                
+                
+                </div>
+                
+                <div class="field">
+                <label>Account Name</label>
+                <input type="text" name="tools[account]" value="<%= tool.account%>">
+                </div>    
+            
+                <div class="field">
+                <label>Application Detailed Description </label>
+                <textarea rows="3" name="tools[toolInfo]"> <%= tool.toolInfo %> </textarea>
+                </div> 
+                
+                <div class="field">
+                <label>Module Name</label>
+                <select class="ui fluid dropdown" name="tools[module]" >
+                    <option value="<%= tool.module %>"><%= tool.module %></option>
+                    <option value="Benefits">Benefits</option>
+                    <option value="Pricing">Pricing</option>
+                    <option value="Fee Schedule">Fee Schedule</option>
+                    <option value="Capitation">Capitation</option>
+                    <option value="Utility">Utility</option>
+                    <option value="Claims">Claims</option>
+                    <option value="Clinical">Clinical Edits</option>
+                    <option value="Others">Others</option>
+                    
+                </select>                
+                
+                
+                </div> 
+                
+                <div class="field">
+                <label>Point of Contact</label>
+                <input type="text" name="tools[poc]" value="<%= tool.poc%>">
+                </div> 
+                
+                <div class="field">
+                <label>Date application created</label>
+                <input type="text" name="tools[dateCreated]" value="<%= tool.dateCreated.toDateString()%>">
+                </div> 
+                
+                <div class="field">
+                <label>Last Version Update date</label>
+                <input type="text" name="tools[lastVersionUpdated]" value="<%= tool.lastVersionUpdated.toDateString()%>">
+                </div> 
+                
+                <div class="field">
+                <label>Wnership</label>
+                <input type="text" name="tools[wnership]" value="<%= tool.wnership%>">
+                </div> 
+
+                <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" tabindex="0" class="hidden">
+                  <label>I agree to the Terms and Conditions</label>
+                </div>
+                </div>
+                
+                <button class="ui button" type="submit">Submit</button>
+
+            </form>
+
+        </div>
+        
+        <div class="four wide column"> </div>
+    </div>
