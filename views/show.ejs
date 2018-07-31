@@ -56,12 +56,18 @@
                       
                     </div>
                     
+ 
 
                 </div> 
-                
+
                 <form id ="delete" action="/tools/<%= tool._id %>?_method=DELETE" method="POST">
-                    <button class="ui red basic button"> Delete</button>
-                    <a class ="ui orange basic button" href="/tools/<%=tool._id %>/edit">Edit</a>
+                    <div>
+                        <div>
+                            <a class ="ui labeled icon small button" href="/tools"><i class="left chevron icon"></i> Go Back</a> 
+                            <button class="ui red small right floated button"> Delete</button>
+                            <a class ="ui teal small right floated button" href="/tools/<%=tool._id %>/edit">Edit</a>                            
+                        </div>
+                    </div>
                 </form>
         
         </div>

@@ -1,9 +1,13 @@
-var express             = require("express"),
-    mongoose            = require("mongoose"),
-    methodOverride      = require("method-override"),
-    bodyParser          = require("body-parser"), 
-    expressSanitizer    = require("express-sanitizer"),
-    Tool                = require("./models/tool");
+var express                 = require("express"),
+    mongoose                = require("mongoose"),
+    methodOverride          = require("method-override"),
+    bodyParser              = require("body-parser"), 
+    expressSanitizer        = require("express-sanitizer"),
+    LocalStrategy           = require("passport-local")  ,
+    passportLocalMongoose   = require("passport-local-mongoose"),
+    passport                = require("passport"),
+    Tool                    = require("./models/tool"),
+    User                    = require("./models/user");
 
 mongoose.connect("mongodb://localhost/CCOE_Tool");
 
@@ -14,6 +18,26 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
 app.use(expressSanitizer());
+
+//PASSPORT CONFIGURATION
+
+app.use(require("express-session")({
+   secret: "Durga Puja 2018 will be awesome!", 
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+app.use((req,res,next)=>{
+    res.locals.currentUser = req.user;
+    next();
+});
 
 // //write to mongodb
 // var feeSchedule = new Tool({
@@ -53,23 +77,24 @@ app.get("/", (req,res)=>{
 });
 
 //INDEX - Display Tool Page
-app.get("/tools",(req,res)=>{
+app.get("/tools",isLoggedIn, (req,res)=>{
+    
     Tool.find({},function(err,alltools){
         if(err){
             console.log(err);
         }else{
-            res.render("tool", {tools:alltools});
+            res.render("tool", {tools:alltools, currentUser:req.user});
         }
     });    
 });
 
 // NEW ROUTE
-app.get("/tools/new", (req,res)=>{
+app.get("/tools/new", isLoggedIn, (req,res)=>{
      res.render("new");
 });
 
 // CREATE ROUTE
-app.post("/tools", (req,res)=>{
+app.post("/tools", isLoggedIn, (req,res)=>{
     req.body.tools.body = req.sanitize(req.body.tools.body);
     Tool.create(req.body.tools, (err,newTool)=>{
         if(err){
@@ -128,18 +153,68 @@ app.delete("/tools/:id",function(req,res){
 });
 
 
-// AUTH ROUTE 
-//===============
-
-//LOGIN ROUTE
-
-app.get("/login", (req,res)=>{
-    res.render("login");
+//==============
+// OTHER PAGES
+//==============
+app.get("/help", (req,res)=>{
+    res.render("help");
 });
 
 
+//===============
+// AUTH ROUTES 
+//===============
+
+//show register form
+app.get("/register", (req,res)=>{
+    res.render("register");
+});
+
+// handle sign up logic
+app.post("/register",(req,res)=>{
+    
+    var newUser = new User({username: req.body.username});
+    
+    User.register(newUser, req.body.password,(err,user)=>{
+        if(err){
+            console.log(err);
+            return res.render("register");
+        }
+        passport.authenticate("local")(req,res,()=>{
+            res.redirect("/tools");
+        });
+    });
+    
+});
 
 
+//show login form
+app.get("/login", (req,res)=>{
+    res.render("login");
+});
+//handling login logic
+
+//app.post("/login", middleware, callback);
+app.post("/login", passport.authenticate("local", 
+        {
+                successRedirect:"/tools", 
+                failureRedirect:"/login"
+        }),(req, res)=>{
+    
+});
+
+//logout route
+app.get("/logout", (req,res)=>{
+    req.logout();
+    res.redirect("/");
+});
+
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect("/login");
+}
 
 
 app.listen(process.env.PORT, process.env.IP, function(){

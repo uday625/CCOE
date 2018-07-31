@@ -29,17 +29,25 @@
         </div>
       
       
-      <a class="item">Help</a>
+      <a class="item" href="/help">Help</a>
       <div class="right menu">
-            <a class="ui item"> 
-                Register
-            </a>          
+          <% if(!currentUser){ %>
+
             <a class="ui item" href="/login"> 
                 Login
             </a>
-            <a class="ui item"> 
+            <a class="ui item" href="/register"> 
+                Register
+            </a>
+            
+           <% } else{ %>
+            <a class="ui item" href="#"> 
+                Signed In As: <%= currentUser.username %>
+            </a>
+            <a class="ui item" href="/logout"> 
                 Logout
             </a>
+           <% }  %>
         </div>
     </div>          
         

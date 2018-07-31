@@ -4,12 +4,11 @@
         <div class="two wide column"> </div>
         <div class="twelve wide centered column"> 
         
-                <h4 class="ui icon center aligned red header">
-                  <i class="settings icon"></i>
+                <h3 class="ui center aligned header">
                   <div class="ui red content">
-                    Application Page
+                    Application Overview Details
                   </div>
-                </h4>
+                </h3>
                             
                 <% tools.forEach(function(tool){ %>
                 <div class="ui raised segment">
@@ -29,7 +28,7 @@
                         <div class="description">
                             <p> <i class="info icon"></i> 
                             <%= tool.toolInfo.substring(0,100)%>...
-                            <a class="ui floated basic mini yellow button" href="/tools/<%=tool._id %>">
+                            <a class="ui floated blue basic icon mini button" href="/tools/<%=tool._id %>">
                                 Read More
                                 <i class="right chevron icon"></i>
                             </a>
