@@ -4,8 +4,13 @@
 }
 
 #topgridMargin {
-    margin-top: 5.0em;
+    margin-top: 1.0em;
 }
+
+#topgridMarginShowPage {
+    margin-top: 10.0em;
+}
+
 
 .logo {
     height: 50px;
@@ -22,4 +27,8 @@ body {
 
 .page-login {
   margin-top: 190px;
+}
+
+.page-home {
+  margin-top: 350px;
 }

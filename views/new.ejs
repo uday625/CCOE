@@ -1,19 +1,10 @@
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
-<link rel="stylesheet" type="text/css" href="/stylesheet/app.css">
-
-    <div class="ui green top fixed inverted menu">
-      <a class="item" href="/" ><i class="home icon"></i><strong>CCOE</strong> </a>
-      <a class="item" href="/tools">Application</a>
-      <a class="item">Testimonials</a>
-      <a class="item">Help</a>
-      <a class="item">Sign-in</a>
-    </div>  
+<% include partials/header %>
     
     
     <div id="topgridMargin"  class="ui sixteen wide centered grid">
         <div class="four wide column"> </div>
         <div class="eight wide centered column"> 
-  
+            <div class="ui segment">
             <form class="ui form" action="/tools" method ="POST" >
             
                 <div class="field">
@@ -51,14 +42,14 @@
                 <label>Module Name</label>
                 <select class="ui fluid dropdown" name="tools[module]" >
                     <option value="">Select Appropriate Module</option>
-                    <option value="Framework">Benefits</option>
-                    <option value="Tool">Pricing</option>
-                    <option value="Script">Fee Schedule</option>
-                    <option value="Script">Capitation</option>
-                    <option value="Script">Utility</option>
-                    <option value="Script">Claims</option>
-                    <option value="Script">Clinical Edits</option>
-                    <option value="Script">Others</option>
+                    <option value="Benefits">Benefits</option>
+                    <option value="Pricing">Pricing</option>
+                    <option value="Fee Schedule">Fee Schedule</option>
+                    <option value="Capitation">Capitation</option>
+                    <option value="Utility">Utility</option>
+                    <option value="Claims">Claims</option>
+                    <option value="Clinical">Clinical Edits</option>
+                    <option value="Others">Others</option>
                     
                 </select>                
                 
@@ -95,8 +86,12 @@
                 <button class="ui button" type="submit">Submit</button>
 
             </form>
-
+            </div>
+            </br> </br>
         </div>
         
         <div class="four wide column"> </div>
     </div>
+
+
+<% include partials/footer %> 

@@ -1,15 +1,8 @@
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
-<link rel="stylesheet" type="text/css" href="/stylesheet/app.css">
+<% include partials/header %>
 
-    <div class="ui green top fixed inverted menu">
-      <a class="item" href="/" ><i class="home icon"></i><strong>CCOE</strong> </a>
-      <a class="item" href="/tools">Application</a>
-      <a class="item">Testimonials</a>
-      <a class="item">Help</a>
-      <a class="item">Sign-in</a>
-    </div>    
+
     
-    <div id="topgridMargin"  class="ui sixteen wide centered grid">
+    <div id="topgridMarginShowPage"  class="ui sixteen wide centered grid">
         <div class="four wide column"> </div>
         <div class="eight wide centered column"> 
                 <div class="ui raised segment">
@@ -56,7 +49,7 @@
                       <div class="right aligned column">
                         <p class="ui italic tiny description">
                                 Last Version Update:<%= tool.lastVersionUpdated.toDateString() %> <br>
-                                 <em>Wnership: <%= tool.wnership %></em>
+                                 <em>Ownership: <%= tool.wnership %></em>
                         </p>
                         
                       </div>
@@ -74,3 +67,5 @@
         </div>
         <div class="four wide column"> </div>
     </div>    
+
+<% include partials/footer %>       
