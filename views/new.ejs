@@ -1,9 +1,18 @@
 <% include partials/header %>
-    
-    
+
+  <script src="/js/script.js"> </script>
+
     <div id="topgridMargin"  class="ui sixteen wide centered grid">
         <div class="four wide column"> </div>
         <div class="eight wide centered column"> 
+        
+          <h3 class="ui center aligned header">
+            <div class="ui red content">
+              Log new application(Tool/Framework/Script)
+            </div>
+          </h3>        
+        
+        
             <div class="ui segment">
             <form class="ui form" action="/tools" method ="POST" >
             
@@ -63,17 +72,23 @@
                 
                 <div class="field">
                 <label>Date application created</label>
-                <input type="text" name="tools[dateCreated]" placeholder="Date application created">
+                <div class="ui input left icon">
+                    <i class="calendar icon"></i>
+                    <input type="text" name="tools[dateCreated]" placeholder="Date application created" id="selectCreateDate">
+                </div>
                 </div> 
                 
                 <div class="field">
                 <label>Last Version Update date</label>
-                <input type="text" name="tools[lastVersionUpdated]" placeholder="Last Version Update date">
+                <div class="ui input left icon">
+                    <i class="calendar icon"></i>
+                    <input type="text" name="tools[lastVersionUpdated]" placeholder="Last Version Update date" id="selectUpdateDate">
+                </div>
                 </div> 
                 
                 <div class="field">
-                <label>Wnership</label>
-                <input type="text" name="tools[wnership]" placeholder="Wnership">
+                <label>Ownership</label>
+                    <input type="text" name="tools[wnership]" placeholder="Ownership">
                 </div> 
 
                 <div class="field">
@@ -86,12 +101,18 @@
                 <button class="ui blue small button" type="submit">Submit</button>
 
             </form>
-            </div>
-            </br> </br>
+
+          </div>
+          </br> </br>            
         </div>
+
+    <br/>
+        
         
         <div class="four wide column"> </div>
     </div>
+
+
 
 
 <% include partials/footer %> 

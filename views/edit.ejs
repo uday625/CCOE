@@ -1,5 +1,7 @@
 <% include partials/header %>
     
+    <script src="/js/script.js"> </script>
+    
     <div id="topgridMargin"  class="ui sixteen wide centered grid">
         <div class="four wide column"> </div>
         <div class="eight wide centered column"> 
@@ -64,12 +66,12 @@
                 
                 <div class="field">
                 <label>Date application created</label>
-                <input type="text" name="tools[dateCreated]" value="<%= tool.dateCreated.toDateString()%>">
+                <input type="text" name="tools[dateCreated]" value="<%= tool.dateCreated.toDateString()%>" id="selectCreateDate">
                 </div> 
                 
                 <div class="field">
                 <label>Last Version Update date</label>
-                <input type="text" name="tools[lastVersionUpdated]" value="<%= tool.lastVersionUpdated.toDateString()%>">
+                <input type="text" name="tools[lastVersionUpdated]" value="<%= tool.lastVersionUpdated.toDateString()%>" id="selectUpdateDate">
                 </div> 
                 
                 <div class="field">

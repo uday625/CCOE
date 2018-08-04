@@ -9,6 +9,7 @@
   "author": "Uday Bag",
   "license": "ISC",
   "dependencies": {
+    "@chenfengyuan/datepicker": "^1.0.0-beta",
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
